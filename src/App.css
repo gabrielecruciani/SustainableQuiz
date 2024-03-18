@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Kalam,'Times New Roman', Times, serif;
+    caret-color: transparent;
+}
+
+
+
+.background {
+    position: fixed;
+    z-index: -1;
+    filter: blur(20px);
+    height: 140%;
+    width: 120%;
+}
