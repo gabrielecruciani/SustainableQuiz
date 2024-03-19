@@ -24,13 +24,19 @@
 
 This website is a project realized for Start2Impact University.
 
-The task was to create a vegetarian recipe site that used spoonacular's API to retrieve data.
-To make the site more complete and dynamic I implemented the favorites function so as to have a page with all the saved recipes.
-A functional search bar, I also implemented the light/dark theme switch.
-I created a working section in the frontend for login but to be implemented with the backend and finally I created a contact form.
+The task was to create a web app react quiz to raise people's awareness of the environment.
 
+To meet the project's request and have an engaging, fun and competitive quiz, I implemented a points system that allows you to quantify knowledge regarding the topic.
 
-### Built With
+In order to broaden the audience and not limit the quiz to just one language, I created a button that allows you to easily and quickly switch from Italian to English and vice versa.
+
+## Installation
+
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Install dependencies using `npm install`.
+
+## Built With
 
 The application had to be developed with TypeScript, React, Html and Css.
 <br/>
