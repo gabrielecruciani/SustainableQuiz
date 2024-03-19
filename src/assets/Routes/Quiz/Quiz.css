@@ -5,7 +5,7 @@
 
 .go-home {
     position: relative;
-    bottom: 20px;
+    bottom: 40px;
     display: flex;
     margin: 0 auto;
     padding: 2px 14px;
@@ -33,16 +33,7 @@
 
 @media only screen and (max-width: 700px) {
     .go-home {
-        position: relative;
-        bottom: 63px;
         font-size: 16px;
         border-radius: 8px;
-    }
-}
-
-@media only screen and (min-width: 701px) and (max-width: 1023px) {
-    .go-home {
-        position: relative;
-        bottom: 65px;
     }
 }
