@@ -24,7 +24,7 @@
 
 This website is a project realized for Start2Impact University.
 
-The task was to create a web app react quiz to raise people's awareness of the environment.
+The task was to create a react quiz web app to increase people's awareness about pollution
 
 To meet the project's request and have an engaging, fun and competitive quiz, I implemented a points system that allows you to quantify knowledge regarding the topic.
 
