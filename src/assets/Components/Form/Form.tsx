@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './Form.css';
 import LanguageSwitch from '../SwitchLanguage/LanguageSwitch';
 import ItaData from '../Data/ItaData';
@@ -13,7 +13,7 @@ interface Answer {
 const Form: React.FC = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState<Answer>({});
-    const { score, setScore, setFinalScore } = useScore();
+    const { setFinalScore } = useScore();
     const [currentLanguage, setCurrentLanguage] = useState('it');
 
     const questions = currentLanguage === 'it' ? ItaData : EngData;
@@ -27,44 +27,32 @@ const Form: React.FC = () => {
 
     const handleBack = () => {
         if (currentQuestion > 0) {
-            const prevAnswer = answers[currentQuestion -1];
-            const isPrevAnswerCorrect = prevAnswer === questions[currentQuestion - 1].correctOption;
             setCurrentQuestion(currentQuestion - 1);
-            if (isPrevAnswerCorrect) {
-                setScore(score - 1);
-            }
         }
     };
 
     const handleNext = () => {
-        const selectedOption = answers[currentQuestion];
-        if (selectedOption) {
-            const isCorrect = selectedOption === currentQuestionData.correctOption;
-            if (isCorrect) {
-                setScore(score + 1);
-            }
-            if (currentQuestion < totalQuestions - 1) {
-                setCurrentQuestion(currentQuestion + 1);
-            }
+        if (currentQuestion < totalQuestions - 1) {
+            setCurrentQuestion(currentQuestion + 1);
         }
     };
 
     
     const handleFinish = () => {
-        const selectedOption = answers[currentQuestion];
-        if (selectedOption) {
-            const isCorrect = selectedOption === currentQuestionData.correctOption;
-            if (isCorrect) {
-                setFinalScore(score + 1);
-            }
-        }
-        setScore(0);
+        const score = calculateScore();
+        setFinalScore(score);
     };
 
-    useEffect(() => {
-        setFinalScore(score);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [score]);    
+    const calculateScore = () => {
+        let score = 0;
+        for (let i = 0; i < totalQuestions; i++) {
+            const correctOption = questions[i].correctOption;
+            if (answers[i] === correctOption) {
+                score++;
+            }
+        }
+        return score;
+    };  
 
     const handleChangeLanguage = (language: string) => {
         setCurrentLanguage(language);
